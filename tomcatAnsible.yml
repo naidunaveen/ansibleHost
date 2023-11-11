@@ -1,0 +1,15 @@
+---
+- name: git_clone
+  hosts: all
+  become: yes
+  tasks:
+    - name: shell_command
+      shell: rm -rf /home/ubuntu/ansible
+    - name: git_checkout
+      ansible.builtin.git:
+        repo: 'https://github.com/naidunaveen/ansible.git'
+        dest: /home/ubuntu/ansible
+        clone: yes
+        update: yes
+    - name: shell_com
+      shell: sh /home/ubuntu/ansible/tomcatscript.sh

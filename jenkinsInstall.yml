@@ -1,0 +1,10 @@
+- name: Installing_jenkins
+  hosts: all
+  become: yes
+  tasks:
+  - name: Copying_jenkisscripts
+    copy:
+      src: jenkinScript.sh
+      dest: /home/ubuntu
+  - name: shell_jenkinscript
+    shell: sh /home/ubuntu/jenkinScript.sh

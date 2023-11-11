@@ -1,0 +1,16 @@
+---
+- name: copyplaybook
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy_file
+      copy:
+        src: /root/shellexe.sh
+        dest: /root
+    - name: script
+      shell: sh /root/shellexe.sh
+      register: target_sh
+    - debug:
+        var: target_sh.stdout_lines
+      tags: 
+        - debug

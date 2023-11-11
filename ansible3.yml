@@ -1,0 +1,9 @@
+---
+- name: install
+  hosts: all
+  become: yes
+  tasks:
+    - name: package
+      apt:
+        name: git
+        state: latest

@@ -1,0 +1,15 @@
+---
+- name: copyplaybook
+  hosts: all
+  tasks:
+    - name: shell_command
+      shell: ls
+      register: target_ls
+      shell: cat /root/naveen/n1
+      register: target_cat
+      shell: tac /root/naveen/n2
+      register: target_tac
+    - debug:
+        var: target_ls.stdout_lines
+        var: target_cat.stdout_lines
+        var: target_tac.stdout_lines

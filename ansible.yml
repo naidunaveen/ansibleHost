@@ -1,0 +1,8 @@
+---
+- name: copyPlaybook
+  hosts: all
+  tasks:
+    - name: copy_file
+      copy: 
+        src: /root/abc
+        dest: /root
